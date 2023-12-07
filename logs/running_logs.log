@@ -1,0 +1,16 @@
+[2023-12-07 21:50:01,379: INFO: main: >>>>>> stage Model Architecture Development started <<<<<<]
+[2023-12-07 21:50:01,380: ERROR: main: [Errno 2] No such file or directory: 'Music_Generation\\Config.yaml']
+Traceback (most recent call last):
+  File "C:\Users\hp\Desktop\Project - 7\Project\Music-Generation\Music_Generation\Src\main.py", line 54, in <module>
+    model = obj.main()
+  File "C:\Users\hp\Desktop\Project - 7\Project\Music-Generation\Music_Generation\Src\Pipelines\stage_04_model_architecture_development.py", line 14, in main
+    config = ConfigurationManager()
+  File "C:\Users\hp\Desktop\Project - 7\Project\Music-Generation\Music_Generation\Src\Configuration\Config.py", line 20, in __init__
+    self.config = read_yaml(config_filepath)
+  File "C:\Users\hp\Desktop\Project - 7\Project\Music-Generation\Project Environment\lib\site-packages\ensure\main.py", line 872, in __call__
+    return_val = self.f(*args, **kwargs)
+  File "C:\Users\hp\Desktop\Project - 7\Project\Music-Generation\Music_Generation\Src\Utils.py", line 38, in read_yaml
+    raise e
+  File "C:\Users\hp\Desktop\Project - 7\Project\Music-Generation\Music_Generation\Src\Utils.py", line 31, in read_yaml
+    with open(path_to_yaml) as yaml_file:
+FileNotFoundError: [Errno 2] No such file or directory: 'Music_Generation\\Config.yaml'
