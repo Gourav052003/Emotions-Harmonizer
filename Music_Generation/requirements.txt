@@ -1,0 +1,11 @@
+PyGithub
+python-box
+ensure
+joblib
+numpy
+scikit-learn
+tqdm
+librosa
+keras
+tensorflow
+Flask
