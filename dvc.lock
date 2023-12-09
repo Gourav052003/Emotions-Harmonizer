@@ -1,0 +1,126 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python Music_Generation/Src/Pipelines/stage_01_data_ingestion.py
+    deps:
+    - path: Music_Generation/Src/Pipelines/stage_01_data_ingestion.py
+      hash: md5
+      md5: 3a86917f4d035a58a0dfe26904dcfa0b
+      size: 954
+  data_validation:
+    cmd: python Music_Generation/Src/Pipelines/stage_02_data_validation.py
+    deps:
+    - path: Music_Generation/Config.yaml
+      hash: md5
+      md5: dbf307ad43c40b94f1628794f224e27b
+      size: 1250
+    - path: Music_Generation/Params.yaml
+      hash: md5
+      md5: ab468578bafa0d811dacdb8ac91a3dc3
+      size: 433
+    - path: Music_Generation/Src/Pipelines/stage_02_data_validation.py
+      hash: md5
+      md5: b822a894d822443660d57ee47dc73a9c
+      size: 1004
+    params:
+      Music_Generation/Params.yaml:
+        Data_Validation:
+          TEST_SIZE: 0.2
+          VALIDATION_SIZE: 0.2
+  data_preparation:
+    cmd: python Music_Generation/Src/Pipelines/stage_03_data_preparation.py
+    deps:
+    - path: Artifacts/test
+      hash: md5
+      md5: 31f6dc0f97b34f1309b1cb3ac2feab72.dir
+      size: 2933237
+      nfiles: 1
+    - path: Artifacts/train
+      hash: md5
+      md5: fa7ed67ee42ee6b295a313b6f58d62e7.dir
+      size: 9724237
+      nfiles: 3
+    - path: Artifacts/validation
+      hash: md5
+      md5: f87e88c8da51bf20cdc12dcc55d7642a.dir
+      size: 3498240
+      nfiles: 1
+    - path: Music_Generation/Config.yaml
+      hash: md5
+      md5: dbf307ad43c40b94f1628794f224e27b
+      size: 1250
+    - path: Music_Generation/Params.yaml
+      hash: md5
+      md5: ab468578bafa0d811dacdb8ac91a3dc3
+      size: 433
+    - path: Music_Generation/Src/Pipelines/stage_03_data_preparation.py
+      hash: md5
+      md5: 586cb48381ffc7394bf1a49c34e4f3f8
+      size: 951
+    params:
+      Music_Generation/Params.yaml:
+        Data_Preparation:
+          DURATION: 30
+          INPUT_TIMESTAMP: 20
+          OUTPUT_TIMESTAMP: 10
+          SAMPLE_RATE: 22050
+  model_architecture_development:
+    cmd: python Music_Generation/Src/Pipelines/stage_04_model_architecture_development.py
+    deps:
+    - path: Music_Generation/Params.yaml
+      hash: md5
+      md5: ab468578bafa0d811dacdb8ac91a3dc3
+      size: 433
+    - path: Music_Generation/Src/Pipelines/stage_04_model_architecture_development.py
+      hash: md5
+      md5: aefd6876278ccfdb29f4be042c175907
+      size: 1026
+    params:
+      Music_Generation/Params.yaml:
+        Model_config:
+          SAMPLE_RATE: 22050
+          ENCODER_TIMESTAMP: 20
+          DECODER_TIMESTAMP: 10
+          LEARNING_RATE: 0.001
+          LOSS: mse
+  model_training:
+    cmd: python Music_Generation/Src/Pipelines/stage_05_model_training.py
+    deps:
+    - path: Artifacts/Pickle/Architecture
+      hash: md5
+      md5: baf53bf8867b138fd955a65fb668b0ee.dir
+      size: 1601426475
+      nfiles: 1
+    - path: Artifacts/Pickle/test
+      hash: md5
+      md5: d8333c232152deb37b3c8862a9a47626.dir
+      size: 10590428
+      nfiles: 3
+    - path: Artifacts/Pickle/train
+      hash: md5
+      md5: 9b2f6d989a75ff79123216ffb6a2a482.dir
+      size: 31758428
+      nfiles: 3
+    - path: Artifacts/Pickle/validation
+      hash: md5
+      md5: f9998bb38fafbf6802907727584914c0.dir
+      size: 10590428
+      nfiles: 3
+    - path: Music_Generation/Config.yaml
+      hash: md5
+      md5: dbf307ad43c40b94f1628794f224e27b
+      size: 1250
+    - path: Music_Generation/Params.yaml
+      hash: md5
+      md5: ab468578bafa0d811dacdb8ac91a3dc3
+      size: 433
+    - path: Music_Generation/Src/Pipelines/stage_05_model_training.py
+      hash: md5
+      md5: 525843c99a61e9b691bd85567f8863f2
+      size: 1562
+    params:
+      Music_Generation/Params.yaml:
+        Model_Training:
+          EPOCHS: 10
+          BATCH_SIZE: 5
+          VALIDATION_BATCH_SIZE: 3

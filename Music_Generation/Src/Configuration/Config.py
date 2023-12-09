@@ -109,7 +109,7 @@ class ConfigurationManager:
         model_training_config = ModelTrainingConfig(
             pickle_model_architecture_directory = config.PICKLE_MODEL_ARCHITECTURE_DIRECTORY,
             pickle_train_directory = config.PICKLE_TRAIN_DIRECTORY,
-            pickle_test_directory = config.PICKLE_TEST_DIRECTORY,
+            # pickle_test_directory = config.PICKLE_TEST_DIRECTORY,
             pickle_validation_directory = config.PICKLE_VALIDATION_DIRECTORY,
             epochs= params.EPOCHS,
             batch_size=params.BATCH_SIZE,

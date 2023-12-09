@@ -2,7 +2,7 @@ from Entity.entity_config import ModelArchitecturePathConfig
 from keras.layers import Input,Dense,LeakyReLU,BatchNormalization,Concatenate,Reshape,Flatten
 from keras.optimizers import Adam
 from keras import Model
-from pickle import dump
+from Utils import dump_object
 import os
 
 class ModelArchitecture:
@@ -122,7 +122,7 @@ class ModelArchitecture:
         model.summary()
 
         os.makedirs(self.pickle_model_architecture,exist_ok=True)
-        dump(model,os.path.join(self.pickle_model_architecture,"model_architecture.pkl"))
+        dump_object(model,os.path.join(self.pickle_model_architecture,"model_architecture"))
 
         
         

@@ -8,20 +8,21 @@ Data_Preparation:
   TRAIN_MUSIC_DIRECTORY : "Artifacts/train/Mix Music"
   VALIDATION_MUSIC_DIRECTORY : "Artifacts/validation/Mix Music"
   TEST_MUSIC_DIRECTORY : "Artifacts/test/Mix Music"
-  PICKLE_TRAIN_MUSIC_DIRECTORY: "Artifacts/Pickle/train"
-  PICKLE_TEST_MUSIC_DIRECTORY: "Artifacts/Pickle/test"
-  PICKLE_VALIDATION_MUSIC_DIRECTORY: "Artifacts/Pickle/validation"
+  PICKLE_TRAIN_DIRECTORY: "Artifacts/Pickle/train"
+  PICKLE_TEST_DIRECTORY: "Artifacts/Pickle/test"
+  PICKLE_VALIDATION_DIRECTORY: "Artifacts/Pickle/validation"
 
 Model_architecture_development:
   PICKLE_MODEL_ARCHITECTURE_DIRECTORY : "Artifacts/Pickle/Architecture" 
 
 Model_Training:
-  PICKLE_TRAIN_MUSIC_DIRECTORY: "Artifacts/Pickle/train"
-  PICKLE_TEST_MUSIC_DIRECTORY: "Artifacts/Pickle/test"
-  PICKLE_VALIDATION_MUSIC_DIRECTORY: "Artifacts/Pickle/validation"
+  PICKLE_TRAIN_DIRECTORY: "Artifacts/Pickle/train"
+  PICKLE_TEST_DIRECTORY: "Artifacts/Pickle/test"
+  PICKLE_VALIDATION_DIRECTORY: "Artifacts/Pickle/validation"
+  PICKLE_MODEL_ARCHITECTURE_DIRECTORY : "Artifacts/Pickle/Architecture" 
 
 Model_Callbacks:
-  SAVE_BEST_MODEL_PATH : "Artifacts/Best_Model/best_model.h5"
+  SAVE_BEST_MODEL_PATH : "Artifacts/Best_Model"
   
 Model_Testing:
   BEST_MODEL_PATH : "Artifacts/Best_Model/best_model.h5"

@@ -1,8 +1,7 @@
-from xmlrpc.client import Boolean
+from Utils import dump_object
 from Entity.entity_config import DataPreparationConfig
 from tqdm import tqdm
 from glob import glob
-from pickle import dump
 import librosa as lbrs
 import numpy as np
 import os
@@ -66,29 +65,25 @@ class DataPreparation:
         return input_timestamp_data,output_timestamp_data,sample_rate
 
 
-    def get_data(self,Training:bool = False,Validation:bool = False,Testing:bool = False):
+    def get_data(self):
 
-        if Training:
-            train_input,train_output,train_sample_rate = self.prepare_data(self.train_music_directory)    
         
-        if Validation:
-            validation_input,validation_output,validation_sample_rate = self.prepare_data(self.validation_music_directory)    
-        
-        if Testing:
-            test_input,test_output,test_sample_rate = self.prepare_data(self.test_music_directory) 
+        train_input,train_output,train_sample_rate = self.prepare_data(self.train_music_directory)    
+        validation_input,validation_output,validation_sample_rate = self.prepare_data(self.validation_music_directory)    
+        test_input,test_output,test_sample_rate = self.prepare_data(self.test_music_directory) 
 
         os.makedirs(self.pickle_train_directory,exist_ok=True)
         os.makedirs(self.pickle_test_directory,exist_ok=True)
         os.makedirs(self.pickle_validation_directory,exist_ok=True)
 
-        dump(train_input,os.path.join(self.pickle_train_directory,"train_input.pkl"))
-        dump(train_input,os.path.join(self.pickle_train_directory,"train_output.pkl"))
-        dump(train_sample_rate,os.path.join(self.pickle_train_directory,"train_sample_rate.pkl"))
+        dump_object(train_input,os.path.join(self.pickle_train_directory,"train_input"))
+        dump_object(train_output,os.path.join(self.pickle_train_directory,"train_output"))
+        dump_object(train_sample_rate,os.path.join(self.pickle_train_directory,"train_sample_rate"))
 
-        dump(test_input,os.path.join(self.pickle_test_directory,"test_input.pkl"))
-        dump(test_input,os.path.join(self.pickle_test_directory,"test_output.pkl"))
-        dump(test_sample_rate,os.path.join(self.pickle_test_directory,"test_sample_rate.pkl"))
+        dump_object(test_input,os.path.join(self.pickle_test_directory,"test_input"))
+        dump_object(test_output,os.path.join(self.pickle_test_directory,"test_output"))
+        dump_object(test_sample_rate,os.path.join(self.pickle_test_directory,"test_sample_rate"))
 
-        dump(validation_input,os.path.join(self.pickle_validation_directory,"validation_input.pkl"))
-        dump(validation_input,os.path.join(self.pickle_validation_directory,"validation_output.pkl"))
-        dump(validation_sample_rate,os.path.join(self.pickle_validation_directory,"validation_sample_rate.pkl"))
+        dump_object(validation_input,os.path.join(self.pickle_validation_directory,"validation_input"))
+        dump_object(validation_output,os.path.join(self.pickle_validation_directory,"validation_output"))
+        dump_object(validation_sample_rate,os.path.join(self.pickle_validation_directory,"validation_sample_rate"))

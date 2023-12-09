@@ -17,11 +17,11 @@ class DataIngestionTrainingPipeline:
         pass
 
     def main(self):
-        pass
-        # config = ConfigurationManager()
-        # data_ingestion_config = config.get_data_ingestion_config()
-        # data_ingestion = DataIngestion(config=data_ingestion_config)
-        # data_ingestion.git_download_folder()
+        # pass
+        config = ConfigurationManager()
+        data_ingestion_config = config.get_data_ingestion_config()
+        data_ingestion = DataIngestion(config=data_ingestion_config)
+        data_ingestion.git_download_folder()
 
 
 
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     try:
         logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
         obj = DataIngestionTrainingPipeline()
-        obj.main()
+        # obj.main()
         logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
     except Exception as e:
         logger.exception(e)

@@ -1,4 +1,8 @@
+import os
+import sys
 
+path = os.path.abspath("Music_Generation/Src")
+sys.path.append(path)
 
 from Components.data_validation import DataValidation
 from Configuration.Config import ConfigurationManager

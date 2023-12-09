@@ -3,8 +3,7 @@ stages:
     cmd: python Music_Generation/Src/Pipelines/stage_01_data_ingestion.py
     deps:
       - Music_Generation/Src/Pipelines/stage_01_data_ingestion.py
-    outs:
-      - Artifacts/Dataset/
+  
   
   data_validation:
     cmd: python Music_Generation/Src/Pipelines/stage_02_data_validation.py
@@ -13,13 +12,9 @@ stages:
       - Music_Generation/Config.yaml
       - Music_Generation/Params.yaml
     params:
-      - Data_Validation:
-          - TEST_SIZE 
-          - VALIDATION_SIZE  
-    outs:
-      - Artifacts/train
-      - Artifacts/test
-      - Artifacts/validation
+      - Music_Generation/Params.yaml:
+        - Data_Validation
+        
       
   data_preparation:
     cmd: python Music_Generation/Src/Pipelines/stage_03_data_preparation.py
@@ -31,15 +26,9 @@ stages:
       - Music_Generation/Config.yaml
       - Music_Generation/Params.yaml 
     params:
-      - Data_Preparation:
-        - DURATION
-        - INPUT_TIMESTAMP
-        - OUTPUT_TIMESTAMP
-        - SAMPLE_RATE  
-    outs:
-      - Artifacts/Pickle/train
-      - Artifacts/Pickle/test
-      - Artifacts/Pickle/validation
+      - Music_Generation/Params.yaml:
+        - Data_Preparation
+    
       
   model_architecture_development:
     cmd : python Music_Generation/Src/Pipelines/stage_04_model_architecture_development.py
@@ -47,14 +36,9 @@ stages:
       - Music_Generation/Src/Pipelines/stage_04_model_architecture_development.py
       - Music_Generation/Params.yaml 
     params:
-      - Model_config:
-          - SAMPLE_RATE 
-          - ENCODER_TIMESTAMP
-          - DECODER_TIMESTAMP 
-          - LEARNING_RATE
-          - LOSS
-    outs:
-      - Artifacts/Pickle/Architecture      
+      - Music_Generation/Params.yaml:
+        - Model_config
+          
 
   model_training:
     cmd : python Music_Generation/Src/Pipelines/stage_05_model_training.py
@@ -67,13 +51,10 @@ stages:
       - Music_Generation/Config.yaml
       - Music_Generation/Params.yaml
     params:
-      - Model_Training:
-          - EPOCHS
-          - BATCH_SIZE
-          - VALIDATION_BATCH_SIZE
-    outs:
-      - Artifacts/Best_Model/best_model.h5
-  
+      - Music_Generation/Params.yaml:
+        - Model_Training
+         
+
   model_testing:
     cmd : python Music_Generation/Src/Pipelines/stage_06_model_testing.py
     deps:
@@ -82,11 +63,9 @@ stages:
       - Music_Generation/Config.yaml
       - Music_Generation/Params.yaml
     params:
-      - Model_Testing:
-          - TESTING_DURATION
-    outs:
-        - Artifacts/Results          
-
+      - Music_Generation/Params.yaml:
+        - Model_Testing
+   
 
 
     

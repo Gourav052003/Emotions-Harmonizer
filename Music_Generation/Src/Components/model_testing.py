@@ -2,7 +2,6 @@ from Entity.entity_config import ModelTestingConfig
 import librosa as lbrs
 import numpy as np
 import os
-from IPython.display import Audio
 from keras.models import load_model
 
 class ModelTesting:

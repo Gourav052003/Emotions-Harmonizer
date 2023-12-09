@@ -48,9 +48,9 @@ class ModelCallbacksConfig:
 @dataclass(frozen=True)
 class ModelTrainingConfig:
     pickle_model_architecture_directory:Path
-    test_music_directory:Path 
+    # test_music_directory:Path 
     pickle_train_directory:Path
-    pickle_test_directory:Path
+    pickle_validation_directory:Path
     epochs:int
     batch_size:int
     validation_batch_size:int

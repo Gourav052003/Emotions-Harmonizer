@@ -8,8 +8,20 @@ from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path
 from typing import Any
+from pickle import dump,load
 import base64
 
+
+def dump_object(object,filename):
+    file = open(filename,'ab')
+    dump(object,file)
+    file.close()
+
+def load_object(filename):
+    file = open(filename,'rb')
+    object = load(file)
+    file.close()    
+    return object
 
 @ensure_annotations
 def read_yaml(path_to_yaml: Path) -> ConfigBox:

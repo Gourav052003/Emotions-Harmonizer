@@ -1,3 +1,9 @@
+import os
+import sys
+
+path = os.path.abspath("Music_Generation/Src")
+sys.path.append(path)
+
 from distutils.command.config import config
 from pyexpat import model
 from Configuration.Config import ConfigurationManager
