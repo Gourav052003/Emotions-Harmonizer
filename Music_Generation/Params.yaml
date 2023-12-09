@@ -1,0 +1,26 @@
+Data_Validation:
+  TEST_SIZE : 0.2
+  VALIDATION_SIZE : 0.2
+
+Data_Preparation:
+  DURATION : 30
+  INPUT_TIMESTAMP : 20
+  OUTPUT_TIMESTAMP : 10
+  SAMPLE_RATE : 22050  
+
+Model_config:
+  SAMPLE_RATE : 22050
+  ENCODER_TIMESTAMP : 20
+  DECODER_TIMESTAMP : 10 
+  LEARNING_RATE : 0.001
+  LOSS : 'mse'
+  
+Model_Training:
+  EPOCHS: 10
+  BATCH_SIZE : 5
+  VALIDATION_BATCH_SIZE: 3
+
+Model_Testing:
+  TESTING_DURATION: 20
+
+
