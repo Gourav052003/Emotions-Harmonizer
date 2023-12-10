@@ -16,7 +16,7 @@ class ModelArchitectureDevelopmentTrainingPipeline:
     def __init__(self):
         pass
 
-    def main(self):
+    def start(self):
         config = ConfigurationManager()
         Model_architecture_config = config.get_model_architecture_path_config()
         model_architecture = ModelArchitecture(config = Model_architecture_config) 
@@ -27,8 +27,8 @@ class ModelArchitectureDevelopmentTrainingPipeline:
 if __name__ == '__main__':
     try:
         logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
-        obj = ModelArchitectureDevelopmentTrainingPipeline()
-        obj.main()
+        Model_architecture_developement_pipeline = ModelArchitectureDevelopmentTrainingPipeline()
+        Model_architecture_developement_pipeline.start()
         logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
     except Exception as e:
         logger.exception(e)

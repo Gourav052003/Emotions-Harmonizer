@@ -17,7 +17,7 @@ class ModelTestingPipeline:
     def __init__(self):
         pass
 
-    def main(self):
+    def start(self):
 
         config = ConfigurationManager()
         model_testing_config = config.get_model_testing_config()
@@ -27,8 +27,8 @@ class ModelTestingPipeline:
 if __name__ == '__main__':
     try:
         logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
-        obj = ModelTestingPipeline()
-        obj.main()
+        Model_testing_pipeline = ModelTestingPipeline()
+        Model_testing_pipeline.start()
         logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
     except Exception as e:
         logger.exception(e)
