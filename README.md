@@ -82,3 +82,60 @@ Here in Encoder, Decoder and Context Unit there is one Hidden layer which plays 
     cd .\Music_Generation\Src
     python main.py
     ```
+
+# AWS-CI/CD-Deployment-with-Github-Actions
+
+1. Login to AWS console.
+
+2. Create IAM (Identity and Access Management) user for Deployment with specific access
+
+    ``Description: About the deployment``
+
+        * Build Docker Image of the source code
+        * Push Docker Image to ECR (Elastic Container registry) to save your Docker Image in AWS
+        * Launch EC2 (virtual Machine)
+        * Pull Image from ECR in EC2
+        * Launch Docker Image in EC2
+
+    ``Policy:``
+
+        * AmazonEC2ContainerRegistryFullAccess
+        * AmazonEC2FullAccess
+
+3. Create ECR repo to store/save Docker Image and save the URI
+
+4. Create EC2 machine (Ubuntu) 
+
+5. Open EC2 and Install Docker in EC2 Machine
+
+    ``Optional steps``
+
+        1. sudo apt-get update -y
+        2. sudo apt-get upgrade
+	
+	``Required steps``
+
+        curl -fsSL https://get.docker.com -o get-docker.sh
+
+        sudo sh get-docker.sh
+
+        sudo usermod -aG docker ubuntu
+
+        newgrp docker
+
+6. Configure EC2 as self-hosted runner
+    ```
+    setting>actions>runner>new self hosted runner> choose os> then run command one by one
+    ```
+
+7. Setup github secrets:
+
+        AWS_ACCESS_KEY_ID=
+
+        AWS_SECRET_ACCESS_KEY=
+
+        AWS_REGION = us-east-1
+
+        AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
+
+        ECR_REPOSITORY_NAME = simple-app    
