@@ -25,7 +25,7 @@ At the Deeper level of single ``Encoder recurrent unit Architecture``, it takes 
 
 All the Outputs ``S0`` to ``St``  from the Encoder is Passed to Context Block which encodes the information to get the context of all encoder timestamp together and passed to decoder for extrapolation of Music for next ``10 timestamps``. All Internal Working is Similar to Encoder unit, Only difference is that it takes only one Input as a list of sequences from  ``S0`` to ``St``, which produced by Encoder recurrent unit. 
 
- 
+
 ![Decoder](https://github.com/Gourav052003/Emotions-Harmonizer/assets/81559597/eae9ce2a-501a-4532-beb7-41fffd74e4aa)
 
 
