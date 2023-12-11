@@ -2,7 +2,7 @@
 In the symphony of life, music serves as a powerful conductor of emotions, weaving intricate patterns that resonate within the depths of our souls. The quest for joy and the alleviation of melancholy often find solace in the artistry of musicians and composers. Yet, in our digital age, where music is fragmented into bite-sized pieces, the challenge emerges: how can we transform fleeting moments of musical bliss into a sustained, transformative experience? This research endeavors to explore a novel solution to this conundrum, proposing an innovative idea that involves generating sequential ``10-second`` music chunks. These musical fragments, when skillfully combined, have the potential to orchestrate a seamless composition of desired duration, thus unlocking a symphony of emotions. Delving into the intricacies of human psychology, the study challenges the conventional belief that repetitive exposure to a short musical piece can adequately replace the profound impact of a longer composition. By extrapolating the musical experience, we aim to bridge the gap between the ephemeral and the enduring, offering a unique pathway to emotional resonance. Join us on this melodic journey through the nitty-gritty details of our solution, where each note becomes a stepping stone towards a richer, more immersive musical experience. As we navigate the intersection of innovation and emotion, the allure of extended musical euphoria awaits discovery, promising to revolutionize the way we perceive and experience the transformative power of music.
 
 # Problem Definition
-To develop a Deep learning model for Remixed Music Extrapolation using LSTMs recurrent neural networks for harmonizing emotions is considered to be a difficult task because of training time it takes to train the ``LSTMs`` and On the top of it, Resource Exhaustion is another big issue in carrying out this task, because the architectural strategy we used need for Implementing this innovative extrapolation is not able to backed by ``LSTMs`` due to Resource Exhaustion Problem. With the aim of developing Music Extrapolation model and providing solutions to the problems, we need to think from the scratch and develop our own custom Encoder Decoder Model without using ``LSTMs``.
+To develop a Deep learning model for Remixed Music Extrapolation using ``LSTMs`` recurrent neural networks for harmonizing emotions is considered to be a difficult task because of training time it takes to train the ``LSTMs`` and On the top of it, Resource Exhaustion is another big issue in carrying out this task, because the architectural strategy we used need for Implementing this innovative extrapolation is not able to backed by ``LSTMs`` due to Resource Exhaustion Problem. With the aim of developing Music Extrapolation model and providing solutions to the problems, we need to think from the scratch and develop our own custom Encoder Decoder Model without using ``LSTMs``.
 
 # Solution offered
 Music Extrapolation Model is built using the Keras functional Model API which helps us to create a flexible neural architecture other than Sequential architecture with only one Input and one Output. Model Architecture we are developing is a variant of ``Sequence2Sequence`` Model i.e. ``Many2Many`` also know as ``Encoder-Decoder Model``.
@@ -37,9 +37,26 @@ After Fetching all the context of Encoder Units using Context block into a Vecto
 
 Here in Encoder, Decoder and Context Unit there is one Hidden layer which plays an important role in learning patterns and understanding the context of Music Sequences. Hidden layers consists of four blocks, where each block consists of ``Dense`` layer, ``LeakyReLU`` layer for Activation and ``Batch Normalization``. Every block has varying Neurons for its ``Dense`` layer ranging from ``64`` to ``512``. In last of hidden layer we have ``Dense`` layer with ``22050`` Nodes with ``LeakyReLU`` as activation for generating Output
 
-# Executing the Implementation
+# Steps to Excecute the Implementation
 
-# 
+1. Clone the ``Emotions-Harmonizer`` Repository
+    ```
+    git clone https://github.com/Gourav052003/Emotions-Harmonizer.git
+    ```
 
+2. Setting Up the Virtual Environment 
+    ```
+    virtualenv venv --python=python3.9
+    ```
 
+3. Installing all the Dependencies
+    ```
+    pip install -r requirements.txt
+    ```
 
+4. Start your Training and Testing Pipeline to build and test the model
+    ```
+    dvc init
+    dvc repro
+    ```
+5.     
