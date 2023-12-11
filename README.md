@@ -55,8 +55,16 @@ Here in Encoder, Decoder and Context Unit there is one Hidden layer which plays 
     ```
 
 4. Start your Training and Testing Pipeline to build and test the model
+    
+    * Using DVC (Data Version Control)
+    
     ```
     dvc init
     dvc repro
     ```
-5.     
+
+    * Using Python script
+    ```
+    cd .\Music_Generation\Src
+    python main.py
+    ```
